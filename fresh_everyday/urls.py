@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from fe_user.views import index
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('fe_user.urls'))
+    url(r'^user/', include('fe_user.urls')),
+    # url(r'^index/', index),
 ]
