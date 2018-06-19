@@ -59,7 +59,7 @@ $(function () {
     function check_pwd() {
         var len = $('#pwd').val().length;
         if (len < 8 || len > 20) {
-            $('#pwd').next().html('密码最少8位，最长20位')
+            $('#pwd').next().html('密码最少8位，最长20位');
             $('#pwd').next().show();
             error_password = true;
         }
@@ -102,7 +102,7 @@ $(function () {
     }
 
 
-    $('#reg_form').submit(function () {
+    $('.reg_form').submit(function () {
         check_user_name();
         check_pwd();
         check_cpwd();
@@ -116,6 +116,4 @@ $(function () {
         }
 
     });
-
-
-})
+});

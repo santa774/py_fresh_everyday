@@ -21,5 +21,4 @@ from fe_user.views import index
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^user/', include('fe_user.urls')),
-    # url(r'^index/', index),
 ]

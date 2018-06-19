@@ -17,8 +17,10 @@ class Migration(migrations.Migration):
                 ('uname', models.CharField(max_length=20)),
                 ('upasswd', models.CharField(max_length=40)),
                 ('uemail', models.CharField(max_length=30)),
-                ('uphone', models.IntegerField(max_length=11)),
-                ('uaddress', models.CharField(max_length=60)),
+                ('uphone', models.CharField(default=b'', max_length=11)),
+                ('uaddress', models.CharField(default=b'', max_length=60)),
+                ('ushou_name', models.CharField(default=b'', max_length=20)),
+                ('uyoubian', models.CharField(default=b'', max_length=10)),
             ],
         ),
     ]

@@ -1,5 +1,46 @@
 {% extends 'base_foot.html' %}
+{% block head %}
+    <script>
+        $(function () {
+            var error_uname = false;
+            var error_upwd = false;
+            var username = {{ error_name }};
+            var password = {{ error_pwd }};
+            if (username === 1) {
+                $('.user_error').html('用户名错误').show();
+            }
+            if (password === 1) {
+                $('.pwd_error').html('密码错误').show();
+            }
 
+            $('#username').blur(function () {
+                var len = $('#username').val().length;
+                if (len === 0) {
+                    $('.user_error').html('请填写用户名').show();
+                    error_uname = true;
+                } else {
+                    $('.user_error').hide();
+                    error_uname = false;
+                }
+            });
+
+            $('#pwd').blur(function () {
+                var len = $('#pwd').val().length;
+                if (len === 0) {
+                    $('.pwd_error').html('请填写密码').show();
+                    error_upwd = true;
+                } else {
+                    $('.pwd_error').hide();
+                    error_upwd = false;
+                }
+            });
+
+            $('.form_input').submit(function () {
+                return error_uname === false && error_upwd === false;
+            });
+        });
+    </script>
+{% endblock head %}
 {% block body %}
     <div class="login_top clearfix">
         <a href="index.html" class="login_logo"><img src="/static/images/logo02.png"></a>
@@ -17,12 +58,12 @@
                 <div class="form_input">
                     <form action="/user/login_handler/" method="post">
                         {% csrf_token %}
-                        <input type="text" name="username" class="name_input" placeholder="请输入用户名">
+                        <input type="text" name="username" id="username" class="name_input" value="{{ uname }}" placeholder="请输入用户名">
                         <div class="user_error">输入错误</div>
-                        <input type="password" name="pwd" class="pass_input" placeholder="请输入密码">
+                        <input type="password" name="pwd" id="pwd" class="pass_input" placeholder="请输入密码">
                         <div class="pwd_error">输入错误</div>
                         <div class="more_input clearfix">
-                            <input type="checkbox" name="">
+                            <input type="checkbox" name="save_name" checked="checked">
                             <label>记住用户名</label>
                             <a href="#">忘记密码</a>
                         </div>
@@ -33,4 +74,4 @@
         </div>
     </div>
 
-{% endblock %}
+{% endblock body %}
