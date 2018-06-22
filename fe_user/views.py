@@ -9,7 +9,7 @@ from hashlib import sha1
 
 
 def index(request):
-    return render(request, 'fe_user/index.html')
+    return render(request, 'fe_user/../templates/fe_goods/index.html')
 
 
 def login(request):
@@ -86,7 +86,7 @@ def login_handler(request):
         s1.update(pwd)
         if s1.hexdigest() == users[0].upasswd:
             # 用户名密码都匹配，调转到用户信息界面
-            http_redirect = HttpResponseRedirect('/user/info')
+            http_redirect = HttpResponseRedirect('/goods/index')
             if save_name != 0:
                 http_redirect.set_cookie('uname', username)
             else:
