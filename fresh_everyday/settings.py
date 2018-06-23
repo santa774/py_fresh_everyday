@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'fe_user',
     'fe_goods',
+    'tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,6 +88,12 @@ DATABASES = {
     }
 }
 
+TINYMCE_DEFAULT_CONFIG = {
+    'theme': 'advanced',
+    'width': 600,
+    'height': 400,
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -109,3 +116,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+MEDIA_ROOT=os.path.join(BASE_DIR, 'static')

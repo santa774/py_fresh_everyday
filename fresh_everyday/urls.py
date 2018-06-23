@@ -1,4 +1,3 @@
-
 """fresh_everyday URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^user/', include('fe_user.urls')),
     url(r'^goods/', include('fe_goods.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]
