@@ -20,7 +20,14 @@ def login(request):
 
 def info(request):
     user = UserInfo.objects.get(id=request.session.get('user_id'))
-    context = {'title': '个人信息', 'uname': user.uname, 'uphone': user.uphone, 'uaddress': user.uaddress}
+    context = {
+        'title': '个人信息',
+        'sub_page': 1,
+        'sub_page_name': '用户信息',
+        'uname': user.uname,
+        'uphone': user.uphone,
+        'uaddress': user.uaddress
+    }
     return render(request, 'fe_user/user_center_info.html', context)
 
 

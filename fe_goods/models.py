@@ -4,8 +4,13 @@ from tinymce.models import HTMLField
 
 # Create your models here.
 class TypeInfo(models.Model):
+    tid = models.IntegerField()
+    tclass = models.CharField(max_length=20)
     tname = models.CharField(max_length=20)
     isDelete = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.tname.encode('utf-8')
 
 
 class GoodsInfo(models.Model):
@@ -15,7 +20,7 @@ class GoodsInfo(models.Model):
     gimage = models.ImageField(upload_to='fe_goods')
     gprice = models.DecimalField(decimal_places=2, max_digits=5)
     gunit = models.CharField(max_length=20, default='500g')
-    gtype = models.ForeignKey(TypeInfo)
+    gtype = models.ForeignKey('TypeInfo')
     gclick = models.IntegerField(default=0)
     gadv = models.BooleanField(default=False)
     isDelete = models.BooleanField(default=False)

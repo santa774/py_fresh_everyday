@@ -4,7 +4,7 @@ from models import *
 
 # Register your models here.
 class TypeInfoAdmin(admin.ModelAdmin):
-    list_display = ['pk', 'tname']
+    list_display = ['pk', 'tid', 'tname', 'tclass']
 
 
 class GoodsInfoAdmin(admin.ModelAdmin):

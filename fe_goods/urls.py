@@ -19,4 +19,6 @@ import views
 urlpatterns = [
     url(r'^index/$', views.index),
     url(r'^cart/$', views.cart),
+    url(r'^detail/$', views.detail),
+    url(r'^list_(\d)+_(\d)+_(\d)+/$', views.goods_list),
 ]
